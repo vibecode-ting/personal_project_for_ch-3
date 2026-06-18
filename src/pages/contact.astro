@@ -3,149 +3,118 @@ import Layout from '../layouts/Layout.astro';
 import { t } from '../i18n/utils';
 
 const lang = 'en';
-const title = 'Contact Us';
+const title = 'Contact Us — Static Sites Builder';
+const description = 'Get in touch with the Static Sites Builder team. We\'re here to help you build amazing websites.';
 ---
 
-<Layout title={title} lang={lang}>
-  <section class="py-20 sm:py-32">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h1 class="text-5xl font-bold text-slate-900 dark:text-white mb-6">
+<Layout title={title} lang={lang} description={description}>
+  <!-- Page header -->
+  <section class="relative pt-20 sm:pt-28 pb-8 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wider uppercase mb-4">
+          Contact
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
           Get in Touch
         </h1>
-        <p class="text-xl text-slate-600 dark:text-slate-300">
-          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300">
+          Have questions? We'd love to hear from you.
         </p>
       </div>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-        <!-- Contact Info -->
-        <div class="lg:col-span-1">
-          <div class="space-y-8">
-            <!-- Email -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                  ✉️
-                </div>
+  <section class="py-12 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        <!-- Contact info cards -->
+        <div class="lg:col-span-2 space-y-4">
+          {[
+            { icon: '✉️', title: 'Email', value: 'hello@myanmardev.com', href: 'mailto:hello@myanmardev.com', gradient: 'from-blue-500 to-cyan-500' },
+            { icon: '📞', title: 'Phone', value: '+95 (0) 123 456 789', href: 'tel:+950123456789', gradient: 'from-purple-500 to-pink-500' },
+            { icon: '📍', title: 'Location', value: 'Yangon, Myanmar', href: '#', gradient: 'from-pink-500 to-orange-500' },
+            { icon: '🌐', title: 'Social', value: 'GitHub · Twitter · Discord', href: 'https://github.com/vibecode-ting', gradient: 'from-green-500 to-emerald-500' },
+          ].map((item) => (
+            <a
+              href={item.href}
+              class="group flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                {item.icon}
               </div>
               <div>
-                <h3 class="text-lg font-medium text-slate-900 dark:text-white">Email</h3>
-                <p class="mt-2 text-slate-600 dark:text-slate-400">
-                  <a href="mailto:hello@myanmardev.com" class="hover:text-blue-500">
-                    hello@myanmardev.com
-                  </a>
-                </p>
+                <h3 class="font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">{item.value}</p>
               </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
-                  📞
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-medium text-slate-900 dark:text-white">Phone</h3>
-                <p class="mt-2 text-slate-600 dark:text-slate-400">
-                  +95 (0) 123 456 789
-                </p>
-              </div>
-            </div>
-
-            <!-- Location -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
-                  📍
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-medium text-slate-900 dark:text-white">Location</h3>
-                <p class="mt-2 text-slate-600 dark:text-slate-400">
-                  Yangon, Myanmar
-                </p>
-              </div>
-            </div>
-
-            <!-- Social -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
-                  🌐
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-medium text-slate-900 dark:text-white">Social</h3>
-                <div class="mt-2 flex gap-4">
-                  <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-blue-500">Twitter</a>
-                  <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-blue-500">GitHub</a>
-                  <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-blue-500">Discord</a>
-                </div>
-              </div>
-            </div>
-          </div>
+            </a>
+          ))}
         </div>
 
-        <!-- Contact Form -->
-        <div class="lg:col-span-2">
-          <form class="space-y-6 bg-slate-50 dark:bg-slate-900 p-8 rounded-xl">
+        <!-- Contact form -->
+        <div class="lg:col-span-3">
+          <form class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-5">
             <div>
-              <label for="name" class="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+              <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Full Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                class="w-full px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                required
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+              <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Email Address
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                class="w-full px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                required
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
                 placeholder="your@email.com"
               />
             </div>
 
             <div>
-              <label for="subject" class="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+              <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Subject
               </label>
               <input
                 type="text"
                 id="subject"
                 name="subject"
-                class="w-full px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
                 placeholder="How can we help?"
               />
             </div>
 
             <div>
-              <label for="message" class="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+              <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows="5"
-                class="w-full px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"
+                required
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 resize-none"
                 placeholder="Your message here..."
               ></textarea>
             </div>
 
             <button
               type="submit"
-              class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300"
+              class="w-full px-6 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-300"
             >
               Send Message
             </button>
@@ -153,36 +122,23 @@ const title = 'Contact Us';
         </div>
       </div>
 
-      <!-- FAQ Section -->
-      <div class="bg-slate-50 dark:bg-slate-900 rounded-xl p-8">
-        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">
+      <!-- FAQ -->
+      <div class="mt-16 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">
           Frequently Asked Questions
         </h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-              What is the response time?
-            </h3>
-            <p class="text-slate-600 dark:text-slate-400">
-              We typically respond to inquiries within 24 hours during business days.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-              Do you offer support in Burmese?
-            </h3>
-            <p class="text-slate-600 dark:text-slate-400">
-              Yes! We provide support in both English and Burmese.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-              Can I schedule a call?
-            </h3>
-            <p class="text-slate-600 dark:text-slate-400">
-              Absolutely! Please mention your preferred time in your message.
-            </p>
-          </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            { q: 'What is the response time?', a: 'We typically respond to inquiries within 24 hours during business days.' },
+            { q: 'Do you offer support in Burmese?', a: 'Yes! We provide support in both English and Burmese (ဗမာ).' },
+            { q: 'Can I schedule a call?', a: 'Absolutely! Please mention your preferred time in your message.' },
+            { q: 'Is this service free?', a: 'Yes! Static Sites Builder is completely free with GitHub Pages deployment.' },
+          ].map((faq) => (
+            <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-900/50">
+              <h3 class="font-semibold text-slate-900 dark:text-white mb-2">{faq.q}</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

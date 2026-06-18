@@ -12,13 +12,25 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
-# environment variables
+# environment variables — DO NOT COMMIT
 .env
+.env.local
 .env.production
+.env.development
+.env*.local
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# VSCode workspace settings (keep extensions.json)
+.vscode/*
+!.vscode/extensions.json
+
+# PNPM store
+.pnpm-store/
+
+# Cache
+*.tsbuildinfo
